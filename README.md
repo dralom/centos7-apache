@@ -45,7 +45,9 @@ This will pull the image, copy the files in the [/src](/src/) folder into the im
 (/src/setup.sh) script. That script will then install apache and copy the site and config files to 
 their predetermined locations.
 
-3. Start the container. By default it will listen on port 18080. 
+3. Start the container. By default it will listen on port 18080. Apache itself listens on port 80 in
+the container itself, but docker is translating port 18080 on the host to the container's port 80, to 
+avoid conflicts on the host machine. 
 
 ```bash
 .tools/test.sh
